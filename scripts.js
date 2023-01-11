@@ -7,7 +7,7 @@
     $menu = document.querySelector(".menu");
   
   document.addEventListener("click", e => {
-    if (e.target.matches(".hambuger") || e.target.matches(`.hamburger *`)) {
+    if (e.target.matches(".hamburger") || e.target.matches(`.hamburger *`)) {
       $btn.classList.toggle("is-active");
       $menu.classList.toggle("is-active");
     }
