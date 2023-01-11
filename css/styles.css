@@ -1,0 +1,515 @@
+/* ********* Custom Properties ************* */
+
+:root {
+  --first-color: #8A1538;
+  --first-alpha-color: rgba(138, 21, 56, 75%);
+  --second-color: #B61C4A;
+  --third-color: #E5537F;
+  --fourth-color: #F2ACC1;
+  --secondary-color: #FF004C;
+  --background-color: #EEEEE4;
+  --white-color: #fff;
+  --gray-light-color: #f3f3f3;
+  --gray-color: #ccc;
+  --gray-dark-color: #666;
+  --black-color: #000;
+  --link-color: #00CFB7;
+  --title-color: #333;
+  --text-color: #222;
+  --white-alpha-color: rgba(255, 255, 255, 0.5);
+  --black-alpha-color: rgba(0, 0, 0, 0.75);
+  --font: 'Qatar2022 Arabic', sans-serif;
+  --max-width: 1200px;
+  --header-height: 4.8rem;
+}
+
+html{
+  font-family: var(--font);
+  scroll-behavior: smooth;
+}
+
+body{
+  color: var(--text-color);
+}
+
+.section{
+  padding: 4rem 2rem;
+}
+
+.container{
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ************ NAV ************* */
+
+header{
+  background-color: var(--background-color);
+  border-bottom: thin solid var(--black-color);
+}
+
+header > .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+  padding: 1rem 2rem;
+}
+
+.logo img{
+  width: 156px;
+  height: 2.3rem;
+  cursor: pointer;
+}
+
+.menu{
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: var(--header-height);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--first-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .05s linear;
+
+}
+
+
+.menu a{
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: var(--background-color);
+  padding: 2rem;
+  text-align: center;
+
+}
+
+.menu a:hover{
+  background-color: var(--background-color);
+  color: var(--first-color);
+}
+
+/* ************ HERO ************* */
+
+.section.hero{
+  padding: 0;
+}
+
+.hero-image{
+  background-image: url('../assets/worldcup.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.hero-background{
+  background-color: var(--black-alpha-color);
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--background-color);
+}
+
+.hero-background h1{
+  font-size: 7.5vh;
+  margin: 1.25rem auto;
+}
+
+
+.hero-background a{
+  margin: .5rem auto;
+  padding: 1.5rem;
+  width: 200px;
+  background-color: var(--first-color);
+  color: var(--background-color);
+  border-radius: 1rem;
+  text-decoration: none;
+  filter: drop-shadow(4px 4px 16px var(--black-alpha-color));
+  transition: all .23s ease;
+}
+
+.hero-background a:hover{
+  background-color: var(--background-color);
+  color: var(--first-color);
+}
+
+/* ************ ABOUT ************* */
+
+.section.about{
+  background-color: var(--first-color);
+}
+
+.about > .container{
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about h2{
+  color: var(--background-color);
+  font-size: 2rem;
+  margin: 2rem 0;
+}
+
+.about h2 b{
+  color: var(--link-color);
+}
+
+.about p{
+  color: var(--background-color);
+}
+
+.imagen-about{
+  display: none;
+}
+
+/* ************* GAME **************** */
+
+.section.game{
+  background-color: var(--background-color);
+}
+
+.section.game > .container{
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section.game > .container > * {
+  margin: 1rem;
+}
+
+.counters{
+  display: flex;
+  justify-content: center;
+}
+
+.points{
+  height: 2rem;
+  width: 4rem;
+  background-color: rgb(42, 135, 29);
+  border-radius: 1rem;
+  color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 .5rem;
+}
+
+.errors{
+  height: 2rem;
+  width: 4rem;
+  background-color: rgb(183, 29, 29);
+  border-radius: 1rem;
+  color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 .5rem;
+}
+
+.canvas{
+  width: 325px;
+  height: 217.5px;
+  background-image: url('../assets/football-pitch.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: space-evenly;
+  border-radius: 1rem;
+}
+
+.country{
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 .5rem;
+  filter: drop-shadow(2px 2px 4px var(--black-alpha-color));
+  cursor: pointer;
+  color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.goal{
+  background-image: none !important;
+  background-color: var(--black-alpha-color);
+}
+
+.saved {
+  background-image: none !important;
+  background-color: var(--black-alpha-color);
+}
+
+.country:first-child{
+  background-image: url('../assets/Flag_of_Belgium.png');
+}
+
+.country:nth-child(2){
+  background-image: url('../assets/Flag_of_Brazil.png');
+}
+
+.country:nth-child(3){
+  background-image: url('../assets/Flag_of_England.png');
+}
+
+.country:nth-child(4){
+  background-image: url('../assets/Flag_of_Argentina.png');
+}
+
+.country:nth-child(5){
+  background-image: url('../assets/Flag_of_Germany.png');
+}
+
+.country:nth-child(6){
+  background-image: url('../assets/Flag_of_Mexico.png');
+}
+
+footer{
+  background-color: var(--first-color);
+}
+
+footer .container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+footer .container p{
+  color: var(--background-color);
+  font-size: 1.2rem;
+  margin: .5rem 0;
+  text-align: center;
+}
+
+.data{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-portfolio{
+  color: var(--link-color);
+  text-align: center;
+  text-decoration: none;
+  transition: all .05s ease;
+}
+
+.link-portfolio:hover{
+  opacity: 85%;
+}
+
+.redes{
+  padding: .5rem 0;
+}
+.redes svg{
+  fill: var(--third-color);
+  transition: all .05s ease;
+}
+
+.redes svg:hover{
+  fill-opacity: 80%;
+}
+
+.background-question{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 1s ease;
+}
+
+.box-question{
+  background-color: var(--background-color);
+  padding: 1rem;
+  border-radius: .5rem;
+}
+
+.box-question h4 {
+  margin: .5rem;
+}
+
+.choices{
+  margin: .5rem;
+}
+
+.choices ul{
+  list-style-type: none;
+}
+
+.choices ul li{
+  padding: .5rem;
+  cursor: pointer;
+}
+
+.choices ul li:hover{
+  background-color: var(--first-color);
+  color: var(--background-color);
+}
+
+.background-question.final{
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.background-question.final h2{
+  text-align: center;
+}
+
+.background-question.final p{
+  text-align: center;
+}
+
+.background-question.final button{
+  margin: 1rem auto;
+  border: none;
+  padding: .5rem;
+  border-radius: .3rem;
+  background-color: var(--background-color);
+  color: var(--first-color);
+  cursor: pointer;
+}
+
+.background-question.final.champion {
+  background-color: rgb(42, 135, 29);
+}
+
+.background-question.final.loser{
+  background-color: rgb(183, 29, 29);
+}
+
+.is-active{
+  opacity: 1 !important;
+  pointer-events: visible !important;
+}
+
+
+
+
+@media screen and (min-width: 720px) {
+  .canvas{
+    width: 512px;
+    height: 340px;
+  }
+
+  .country{
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+}
+
+
+@media screen and (min-width: 1024px) {
+
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+
+  header > .container{
+    padding: 1rem 1.5rem;
+  }
+
+  .container > button {
+    display: none;
+  }
+  
+  .menu{
+    position: static;
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu a{
+    padding: 0 1rem;
+    color: var(--first-color);
+    background-color: var(--background-color);
+  }
+  .menu a:hover{
+    color: var(--first-alpha-color);
+  }
+  
+  .about > .container{
+    display: grid;
+    grid-template-columns: repeat(2, 30%);
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .imagen-about{
+    display: block;
+    width: 400px;
+    height: 400px;
+    border-radius: 2rem;
+    filter: drop-shadow(2px 2px .4rem rgba(0, 0, 0, 0.75));
+  }
+
+  .points{
+    height: 2.5rem;
+    width: 5rem;
+  }
+
+  .errors{
+    height: 2.5rem;
+    width: 5rem;
+  }
+
+  .canvas{
+    width: 640px;
+    height: 425px;
+  }
+
+  .country{
+    width: 5rem;
+    height: 5rem;
+  }
+  
+  footer .container{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+}
+
+
+
+
